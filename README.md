@@ -21,15 +21,34 @@ The Interface Monitor is a Python class designed to track read and write transac
 
 As per the problem, the pseudocode used to measure average latency and bandwidth can be written as follows:
 
-class InterfaceMonitor:
-    def __init__(self):
-        # Initialize variables
+CLASS InterfaceMonitor:
+    METHOD __init__():
+        Initialize last_read, last_write, read_sum, write_sum, read_count, write_count, bytes_transferred to -1, 0, 0, 0, 0, 0, 0
 
-    def add_transaction(self, timestamp, txn_type, data):
-        # Add transaction details
+    METHOD add_transaction(timestamp, txn_type, data):
+        IF txn_type is "Rd" AND last_read is not -1:
+            Increment read_sum by (timestamp - last_read) and increment read_count by 1
+        ELSE IF txn_type is "Wr" AND last_write is not -1:
+            Increment write_sum by (timestamp - last_write) and increment write_count by 1
+        ELSE IF txn_type is "Data":
+            Increment bytes_transferred by 32
 
-    def calculate_latency_bandwidth(self):
-        # Calculate average latency and bandwidth
+        IF txn_type is "Rd": Set last_read to timestamp
+        ELSE IF txn_type is "Wr": Set last_write to timestamp
+
+    METHOD calculate_latency_bandwidth():
+        Compute average_read_latency as read_sum / read_count if read_count > 0, otherwise set to 0
+        Compute average_write_latency as write_sum / write_count if write_count > 0, otherwise set to 0
+        Compute average_bandwidth as bytes_transferred / (read_count + write_count) if (read_count + write_count) > 0, otherwise set to 0
+        RETURN average_read_latency, average_write_latency, average_bandwidth
+
+CREATE interface_monitor as new InterfaceMonitor()
+FOR EACH transaction in [("Rd", 0), ("Wr", 2), ("Wr", 4), ("Data", 10)]:
+    CALL add_transaction(transaction[1], transaction[0], "Addr" + str(transaction[1] + 1)) on interface_monitor
+
+CALL calculate_latency_bandwidth() on interface_monitor and STORE results in average_read_latency, average_write_latency, average_bandwidth
+DISPLAY "Average Read Latency:", average_read_latency, "Average Write Latency:", average_write_latency, "Average Bandwidth:", average_bandwidth
+
 3. **View Results**: The script will run and output the average read latency, average write latency, and average bandwidth based on the transactions provided in the example usage section.
 
 ## Example Usage
