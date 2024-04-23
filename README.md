@@ -71,11 +71,11 @@ print("Average Write Latency:", average_write_latency)
 print("Average Bandwidth:", average_bandwidth)
 
 ## Additional Information
-The add_transaction method is used to add transactions to the interface monitor. It takes three arguments: timestamp, txn_type, and data.
-timestamp: The time at which the transaction occurred.
-txn_type: The type of transaction, which can be "Rd" (read), "Wr" (write), or "Data" (data transfer).
-data: Additional data associated with the transaction.
-The calculate_latency_bandwidth method calculates the average read latency, average write latency, and average bandwidth based on the transactions added using add_transaction.
-The average read latency is the average time between successive read transactions.
-The average write latency is the average time between successive write transactions.
-The average bandwidth is the average amount of data transferred per transaction (assuming 32 bytes per transfer).
+The add_transaction method is used to add transactions to the interface monitor. It takes three arguments: timestamp, txn_type, and data.<br/>
+timestamp: The time at which the transaction occurred.<br/>
+txn_type: The type of transaction, which can be "Rd" (read), "Wr" (write), or "Data" (data transfer).<br/>
+data: Additional data associated with the transaction.<br/>
+The calculate_latency_bandwidth method calculates the average read latency, average write latency, and average bandwidth based on the transactions added using add_transaction.<br/>
+The average read latency is the average time between successive read transactions.<br/>
+The average write latency is the average time between successive write transactions.<br/>
+The average bandwidth is the average amount of data transferred per transaction (assuming 32 bytes per transfer).<br/>
