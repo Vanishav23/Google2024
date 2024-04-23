@@ -1,15 +1,14 @@
-# Interface Monitor
+# OptiNoC: Maximizing NoC Performance with RL
+## Interface Monitor
 
 The Interface Monitor is a Python class designed to track read and write transactions on an interface and calculate average read latency, average write latency, and average bandwidth based on the recorded transactions.
 
 ## Environment Setup
 
 1. **Python 3**: Ensure you have Python 3 installed on your system. You can download and install Python from [python.org](https://www.python.org/downloads/).
-
 2. **Clone the Repository**: Clone or download the repository containing the `interface_monitor.py` script.
 
 ## Running the Code
-
 1. **Navigate to the Directory**: Open a terminal or command prompt and navigate to the directory where the script is located.
 
 2. **Execute the Script**: Run the following command to execute the code:
@@ -18,7 +17,6 @@ The Interface Monitor is a Python class designed to track read and write transac
     python interface_monitor.py
     ```
 ## Brief Summary of the Solution
-
 As per the problem, the pseudocode used to measure average latency and bandwidth can be written as follows:
 
 CLASS InterfaceMonitor:
@@ -42,12 +40,12 @@ CLASS InterfaceMonitor:
         Compute average_bandwidth as bytes_transferred / (read_count + write_count) if (read_count + write_count) > 0, otherwise set to 0
         RETURN average_read_latency, average_write_latency, average_bandwidth
 
-CREATE interface_monitor as new InterfaceMonitor()
-FOR EACH transaction in [("Rd", 0), ("Wr", 2), ("Wr", 4), ("Data", 10)]:
+    CREATE interface_monitor as new InterfaceMonitor()
+    FOR EACH transaction in [("Rd", 0), ("Wr", 2), ("Wr", 4), ("Data", 10)]:
     CALL add_transaction(transaction[1], transaction[0], "Addr" + str(transaction[1] + 1)) on interface_monitor
 
-CALL calculate_latency_bandwidth() on interface_monitor and STORE results in average_read_latency, average_write_latency, average_bandwidth
-DISPLAY "Average Read Latency:", average_read_latency, "Average Write Latency:", average_write_latency, "Average Bandwidth:", average_bandwidth
+    CALL calculate_latency_bandwidth() on interface_monitor and STORE results in average_read_latency, average_write_latency, average_bandwidth
+    DISPLAY "Average Read Latency:", average_read_latency, "Average Write Latency:", average_write_latency, "Average Bandwidth:", average_bandwidth
 
 3. **View Results**: The script will run and output the average read latency, average write latency, and average bandwidth based on the transactions provided in the example usage section.
 
