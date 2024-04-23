@@ -17,7 +17,19 @@ The Interface Monitor is a Python class designed to track read and write transac
     ```bash
     python interface_monitor.py
     ```
+## Brief Summary of the Solution
 
+As per the problem, the pseudocode used to measure average latency and bandwidth can be written as follows:
+
+class InterfaceMonitor:
+    def __init__(self):
+        # Initialize variables
+
+    def add_transaction(self, timestamp, txn_type, data):
+        # Add transaction details
+
+    def calculate_latency_bandwidth(self):
+        # Calculate average latency and bandwidth
 3. **View Results**: The script will run and output the average read latency, average write latency, and average bandwidth based on the transactions provided in the example usage section.
 
 ## Example Usage
