@@ -1,4 +1,6 @@
 # OptiNoC: Maximizing NoC Performance with RL
+Project for Google Girl Hackathon 2024: Silicon Engineering
+
 ## Interface Monitor
 
 The Interface Monitor is a Python class designed to track read and write transactions on an interface and calculate average read latency, average write latency, and average bandwidth based on the recorded transactions.
