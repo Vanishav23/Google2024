@@ -53,19 +53,19 @@ CLASS InterfaceMonitor:
 
 from interface_monitor import InterfaceMonitor
 
-# Create an instance of the InterfaceMonitor class
+Create an instance of the InterfaceMonitor class
 interface_monitor = InterfaceMonitor()
 
-# Add transactions to the interface monitor
+Add transactions to the interface monitor
 interface_monitor.add_transaction(0, "Rd", "Addr1")
 interface_monitor.add_transaction(2, "Wr", "Addr2")
 interface_monitor.add_transaction(4, "Wr", "Addr3")
 interface_monitor.add_transaction(10, "Data", "Addr1")
 
-# Calculate average read latency, average write latency, and average bandwidth
+Calculate average read latency, average write latency, and average bandwidth
 average_read_latency, average_write_latency, average_bandwidth = interface_monitor.calculate_latency_bandwidth()
 
-# Print the results
+Print the results
 print("Average Read Latency:", average_read_latency)
 print("Average Write Latency:", average_write_latency)
 print("Average Bandwidth:", average_bandwidth)
